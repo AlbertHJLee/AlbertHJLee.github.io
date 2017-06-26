@@ -47,7 +47,7 @@ div.box {border:solid; border-width:thin; width:70%; margin-top:1em; margin-bott
 
 
 :link { color: rgb(0, 0, 153); }  /* for unvisited links, also called "a:link" */
-:visited { color: rgb(153, 0, 153); } /* for visited links, also called "a:visited" */
+:visited { color: rgb(173, 153, 193); } /* for visited links, also called "a:visited" */
 a:hover { color: rgb(255,255,255)} /* when mouse is over link */
 a:active { color: rgb(255, 0, 102); } /* when link is clicked */
 /* the order above MUST be observed */
@@ -83,7 +83,7 @@ font-family:arial,verdana,sans-serif;
 
 div.root a:link
 {
-color:black;
+color:#685fa0;   /* Overrides inherited link color */
 text-decoration:none;
 }
 div.root a:hover
