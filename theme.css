@@ -1,0 +1,112 @@
+body{
+  margin-left:10%; margin-right:10%;
+  background-color:white; /* can be bothersome to eye if not white #f6ddf6; */
+  background-image:url('images/ika.gif');
+  background-repeat:no-repeat; /* other options are repeat-x, repeat-y */
+  background-position:right top;
+  background-attachment:fixed;
+}
+/* alternate shorthand notation: "background:#ffffff url('img_tree.png') no-repeat right top;" */
+/* order of shorthand (values may be omitted): color, image, repeat, position, attachment */
+
+h1{margin-top:3em; margin-left:-3%;}
+/* em is in units of font spacing
+   px is in pixels
+*/
+h3 {font-size: 150%}  /* sets font size relative to text size */
+
+h1,h2,h3 {font-family:Arial, sans-serif}  /* specifies font. displays first listed font available in browser*/
+
+p.indented {text-indent:3em}  /* for indenting the first line of paragraphs */
+
+em {font-style:italic;}  /* you can override what em, strong, i, etc. do */
+
+pre {font-family:monospace;}
+
+ul.nopadding {padding: 0em;}
+
+
+
+/* DIV STYLING FOR TEST.HTML */
+
+div.footer{word-spacing:6px;font-size:80%;padding-right:12px;padding-top:19px;float:right;width:600px;text-align:right;padding-bottom:10px}
+
+div.divider{width:100%;clear:both}
+
+div.box {border:solid; border-width:thin; width:70%; margin-top:1em; margin-bottom:1em;}
+  div.box p {margin-left:2em; margin-right:2em;}
+  /* the second line applies a style to p elements INSIDE div elements of the class "box" */
+
+.redbox {background:#FFCC99; padding:0.8em; border:none; margin-top:1em; margin-bottom:1em;}
+/* this makes any element of class redbox - even if it's not div - have this style */
+
+#reddish {color:red;}
+/* this finds the unique element with id "reddish" and applies this style */
+/* NEVER start id or class names with a number */
+
+
+
+:link { color: rgb(0, 0, 153); }  /* for unvisited links, also called "a:link" */
+:visited { color: rgb(153, 0, 153); } /* for visited links, also called "a:visited" */
+a:hover { color: rgb(255,255,255)} /* when mouse is over link */
+a:active { color: rgb(255, 0, 102); } /* when link is clicked */
+/* the order above MUST be observed */
+
+/* OR you can specify these inside another element like so... */
+body{ link:#33FFFF; vlink:#cc99ff; alink:#00cccc; }
+/* actually it seems like these must be put in the html document as attributes in the body tag? */
+
+
+
+
+/* HOMEPAGE STYLE */
+
+body.home
+{
+margin-left:auto; margin-right:auto;
+background-color:white;
+background-image:none;
+}
+
+div.root
+{ 
+width:280px;
+/*height:350px;*/
+border:1px solid #e0e0e0;
+padding:40px;
+margin-left:auto; margin-right:auto;
+margin-top:250px;
+margin-bottom:250px;
+text-transfrom:uppercase;
+font-family:arial,verdana,sans-serif;
+}
+
+div.root a:link
+{
+color:black;
+text-decoration:none;
+}
+div.root a:hover
+{
+color:#808080;
+}
+
+div.root table
+{
+/*margin-top:auto; margin-bottom:auto;*/
+width:300;
+height:250;
+margin-left:auto; margin-right:auto;
+border:0;
+cellspacing:10;
+cellpadding:20;
+}
+
+div.root tr
+{
+text-align:center
+}
+
+
+
+
