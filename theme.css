@@ -28,39 +28,21 @@ ul.nopadding {padding: 0em;}
 
 
 
-/* DIV STYLING FOR TEST.HTML */
-
-div.footer{word-spacing:6px;font-size:80%;padding-right:12px;padding-top:19px;float:right;width:600px;text-align:right;padding-bottom:10px}
-
-div.divider{width:100%;clear:both}
-
-div.box {border:solid; border-width:thin; width:70%; margin-top:1em; margin-bottom:1em;}
-  div.box p {margin-left:2em; margin-right:2em;}
-  /* the second line applies a style to p elements INSIDE div elements of the class "box" */
-
-.redbox {background:#FFCC99; padding:0.8em; border:none; margin-top:1em; margin-bottom:1em;}
-/* this makes any element of class redbox - even if it's not div - have this style */
-
-#reddish {color:red;}
-/* this finds the unique element with id "reddish" and applies this style */
-/* NEVER start id or class names with a number */
 
 
 
-:link { color: rgb(0, 0, 153); }  /* for unvisited links, also called "a:link" */
-:visited { color: rgb(173, 153, 193); } /* for visited links, also called "a:visited" */
-a:hover { color: rgb(255,255,255)} /* when mouse is over link */
-a:active { color: rgb(255, 0, 102); } /* when link is clicked */
+/* GLOBAL STYLES */
+
+:link { color:#685fa0; }  /* for unvisited links, also called "a:link" */
+:visited { color: rgb(170, 140, 193); } /* for visited links, also called "a:visited" */
+a:hover { color: rgb(200,200,240)} /* when mouse is over link */
+a:active { color: rgb(225, 150, 192); } /* when link is clicked */
 /* the order above MUST be observed */
 
 /* OR you can specify these inside another element like so... */
 body{ link:#33FFFF; vlink:#cc99ff; alink:#00cccc; }
 /* actually it seems like these must be put in the html document as attributes in the body tag? */
 
-
-
-
-/* GLOBAL STYLES */
 
 p.footnote
 {
@@ -74,8 +56,8 @@ width:340px;
 border:1px solid #e0e0e0;
 padding:40px;
 margin-left:auto; margin-right:auto;
-margin-top:250px;
-margin-bottom:250px;
+margin-top:130px;
+margin-bottom:130px;
 text-transfrom:uppercase;
 font-family:arial,verdana,sans-serif;
 }
@@ -84,6 +66,12 @@ div.rootwide p
 {
 text-align:left;
 }
+
+div.rootwide a:link
+{
+text-decoration:none;
+}
+
 
 
 
@@ -112,12 +100,7 @@ font-family:arial,verdana,sans-serif;
 
 div.root a:link
 {
-color:#685fa0;   /* Overrides inherited link color */
 text-decoration:none;
-}
-div.root a:hover
-{
-color:#808080;
 }
 
 div.root table
