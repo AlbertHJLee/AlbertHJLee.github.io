@@ -27,6 +27,7 @@ ul.nopadding {padding: 0em;}
 
 
 
+
 /* DIV STYLING FOR TEST.HTML */
 
 div.footer{word-spacing:6px;font-size:80%;padding-right:12px;padding-top:19px;float:right;width:600px;text-align:right;padding-bottom:10px}
@@ -55,6 +56,34 @@ a:active { color: rgb(255, 0, 102); } /* when link is clicked */
 /* OR you can specify these inside another element like so... */
 body{ link:#33FFFF; vlink:#cc99ff; alink:#00cccc; }
 /* actually it seems like these must be put in the html document as attributes in the body tag? */
+
+
+
+
+/* GLOBAL STYLES */
+
+p.footnote
+{
+color:#888888
+}
+
+div.rootwide
+{ 
+width:340px;
+/*height:350px;*/
+border:1px solid #e0e0e0;
+padding:40px;
+margin-left:auto; margin-right:auto;
+margin-top:250px;
+margin-bottom:250px;
+text-transfrom:uppercase;
+font-family:arial,verdana,sans-serif;
+}
+
+div.rootwide p
+{
+text-align:left;
+}
 
 
 
