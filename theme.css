@@ -24,6 +24,11 @@ letter-spacing:0.1em;
 font-family:quicksand,frutiger,univers,helvetica,arial,verdana,sans-serif;
 }
 
+p.box
+{
+margin-bottom: 2.0em;
+}
+
 div.rootwide
 { 
 width:340px;
