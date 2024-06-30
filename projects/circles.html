@@ -94,87 +94,6 @@ function A9(fun, a, b, c, d, e, f, g, h, i) {
 console.warn('Compiled in DEV mode. Follow the advice at https://elm-lang.org/0.19.1/optimize for better performance and smaller assets.');
 
 
-var _List_Nil_UNUSED = { $: 0 };
-var _List_Nil = { $: '[]' };
-
-function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }
-function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }
-
-
-var _List_cons = F2(_List_Cons);
-
-function _List_fromArray(arr)
-{
-	var out = _List_Nil;
-	for (var i = arr.length; i--; )
-	{
-		out = _List_Cons(arr[i], out);
-	}
-	return out;
-}
-
-function _List_toArray(xs)
-{
-	for (var out = []; xs.b; xs = xs.b) // WHILE_CONS
-	{
-		out.push(xs.a);
-	}
-	return out;
-}
-
-var _List_map2 = F3(function(f, xs, ys)
-{
-	for (var arr = []; xs.b && ys.b; xs = xs.b, ys = ys.b) // WHILE_CONSES
-	{
-		arr.push(A2(f, xs.a, ys.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map3 = F4(function(f, xs, ys, zs)
-{
-	for (var arr = []; xs.b && ys.b && zs.b; xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A3(f, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map4 = F5(function(f, ws, xs, ys, zs)
-{
-	for (var arr = []; ws.b && xs.b && ys.b && zs.b; ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A4(f, ws.a, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_map5 = F6(function(f, vs, ws, xs, ys, zs)
-{
-	for (var arr = []; vs.b && ws.b && xs.b && ys.b && zs.b; vs = vs.b, ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
-	{
-		arr.push(A5(f, vs.a, ws.a, xs.a, ys.a, zs.a));
-	}
-	return _List_fromArray(arr);
-});
-
-var _List_sortBy = F2(function(f, xs)
-{
-	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
-		return _Utils_cmp(f(a), f(b));
-	}));
-});
-
-var _List_sortWith = F2(function(f, xs)
-{
-	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
-		var ord = A2(f, a, b);
-		return ord === $elm$core$Basics$EQ ? 0 : ord === $elm$core$Basics$LT ? -1 : 1;
-	}));
-});
-
-
-
 var _JsArray_empty = [];
 
 function _JsArray_singleton(value)
@@ -804,6 +723,87 @@ function _Utils_ap(xs, ys)
 	}
 	return root;
 }
+
+
+
+var _List_Nil_UNUSED = { $: 0 };
+var _List_Nil = { $: '[]' };
+
+function _List_Cons_UNUSED(hd, tl) { return { $: 1, a: hd, b: tl }; }
+function _List_Cons(hd, tl) { return { $: '::', a: hd, b: tl }; }
+
+
+var _List_cons = F2(_List_Cons);
+
+function _List_fromArray(arr)
+{
+	var out = _List_Nil;
+	for (var i = arr.length; i--; )
+	{
+		out = _List_Cons(arr[i], out);
+	}
+	return out;
+}
+
+function _List_toArray(xs)
+{
+	for (var out = []; xs.b; xs = xs.b) // WHILE_CONS
+	{
+		out.push(xs.a);
+	}
+	return out;
+}
+
+var _List_map2 = F3(function(f, xs, ys)
+{
+	for (var arr = []; xs.b && ys.b; xs = xs.b, ys = ys.b) // WHILE_CONSES
+	{
+		arr.push(A2(f, xs.a, ys.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map3 = F4(function(f, xs, ys, zs)
+{
+	for (var arr = []; xs.b && ys.b && zs.b; xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A3(f, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map4 = F5(function(f, ws, xs, ys, zs)
+{
+	for (var arr = []; ws.b && xs.b && ys.b && zs.b; ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A4(f, ws.a, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_map5 = F6(function(f, vs, ws, xs, ys, zs)
+{
+	for (var arr = []; vs.b && ws.b && xs.b && ys.b && zs.b; vs = vs.b, ws = ws.b, xs = xs.b, ys = ys.b, zs = zs.b) // WHILE_CONSES
+	{
+		arr.push(A5(f, vs.a, ws.a, xs.a, ys.a, zs.a));
+	}
+	return _List_fromArray(arr);
+});
+
+var _List_sortBy = F2(function(f, xs)
+{
+	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
+		return _Utils_cmp(f(a), f(b));
+	}));
+});
+
+var _List_sortWith = F2(function(f, xs)
+{
+	return _List_fromArray(_List_toArray(xs).sort(function(a, b) {
+		var ord = A2(f, a, b);
+		return ord === $elm$core$Basics$EQ ? 0 : ord === $elm$core$Basics$LT ? -1 : 1;
+	}));
+});
 
 
 
@@ -4384,8 +4384,6 @@ function _Browser_load(url)
 		}
 	}));
 }
-var $elm$core$Basics$EQ = {$: 'EQ'};
-var $elm$core$Basics$LT = {$: 'LT'};
 var $elm$core$List$cons = _List_cons;
 var $elm$core$Elm$JsArray$foldr = _JsArray_foldr;
 var $elm$core$Array$foldr = F3(
@@ -4463,7 +4461,9 @@ var $elm$core$Set$toList = function (_v0) {
 	var dict = _v0.a;
 	return $elm$core$Dict$keys(dict);
 };
+var $elm$core$Basics$EQ = {$: 'EQ'};
 var $elm$core$Basics$GT = {$: 'GT'};
+var $elm$core$Basics$LT = {$: 'LT'};
 var $author$project$Playground$Game = F3(
 	function (a, b, c) {
 		return {$: 'Game', a: a, b: b, c: c};
@@ -6738,9 +6738,76 @@ var $author$project$Playground$game = F3(
 		return $elm$browser$Browser$document(
 			{init: init, subscriptions: subscriptions, update: update, view: view});
 	});
+var $elm$core$Basics$atan = _Basics_atan;
+var $elm$core$Basics$pow = _Basics_pow;
+var $elm$core$Basics$sqrt = _Basics_sqrt;
+var $author$project$Magnet$displacement = F4(
+	function (mousex, mousey, originx, originy) {
+		var spring_constant = 2.5;
+		var min_r = 0.1;
+		var max_displaced = 40;
+		var deltay = mousey - originy;
+		var deltax = mousex - originx;
+		var r0 = $elm$core$Basics$sqrt(
+			A2($elm$core$Basics$pow, deltax, 2) + A2($elm$core$Basics$pow, deltay, 2));
+		var r = (_Utils_cmp(r0, min_r) < 0) ? min_r : r0;
+		var displaced = (A2($elm$core$Basics$pow, r, -2) * 600000.0) / spring_constant;
+		var displaced_final = (_Utils_cmp(displaced, max_displaced) < 0) ? displaced : max_displaced;
+		var angle = $elm$core$Basics$atan(deltay / deltax);
+		return {angle: angle, displaced: displaced, distance: r, newx: originx - ((deltax / r) * displaced_final), newy: originy - ((deltay / r) * displaced_final)};
+	});
+var $author$project$Magnet$init_circle = F2(
+	function (x, y) {
+		var results = A4($author$project$Magnet$displacement, 0, -500, x, y);
+		return {angle: results.angle, displaced: results.displaced, distance: results.distance, flagged: false, newx: results.newx, newy: results.newy, x: x, y: y};
+	});
+var $author$project$Magnet$column_of_circles = F2(
+	function (y_list, x) {
+		return A2(
+			$elm$core$List$map,
+			$author$project$Magnet$init_circle(x),
+			y_list);
+	});
+var $elm$core$List$append = F2(
+	function (xs, ys) {
+		if (!ys.b) {
+			return xs;
+		} else {
+			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
+		}
+	});
+var $elm$core$List$concat = function (lists) {
+	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
+};
+var $author$project$Magnet$grid_of_circles = F2(
+	function (x_list, y_list) {
+		return $elm$core$List$concat(
+			A2(
+				$elm$core$List$map,
+				$author$project$Magnet$column_of_circles(y_list),
+				x_list));
+	});
+var $author$project$Magnet$init_circles = A2(
+	$author$project$Magnet$grid_of_circles,
+	_List_fromArray(
+		[-400, -300, -200, -100, 0, 100, 200, 300, 400]),
+	_List_fromArray(
+		[-200, -100, 0, 100, 200]));
+var $author$project$Magnet$update_circle = F2(
+	function (computer, circle) {
+		var results = A4($author$project$Magnet$displacement, computer.mouse.x, computer.mouse.y, circle.x, circle.y);
+		var contact_distance = computer.mouse.down ? 5 : 2;
+		var is_flagged = (_Utils_cmp(results.distance, contact_distance) < 0) ? true : circle.flagged;
+		return _Utils_update(
+			circle,
+			{angle: results.angle, displaced: results.displaced, distance: results.distance, flagged: is_flagged, newx: results.newx, newy: results.newy});
+	});
 var $author$project$Magnet$update = F2(
-	function (computer, memory) {
-		return memory;
+	function (computer, circles) {
+		return A2(
+			$elm$core$List$map,
+			$author$project$Magnet$update_circle(computer),
+			circles);
 	});
 var $author$project$Playground$Circle = F2(
 	function (a, b) {
@@ -6761,26 +6828,6 @@ var $author$project$Playground$circle = F2(
 			1,
 			A2($author$project$Playground$Circle, color, radius));
 	});
-var $elm$core$Basics$atan = _Basics_atan;
-var $elm$core$Basics$pow = _Basics_pow;
-var $elm$core$Basics$sqrt = _Basics_sqrt;
-var $author$project$Magnet$displacement = F4(
-	function (computer, memory, originx, originy) {
-		var spring_constant = 2.5;
-		var mousey = computer.mouse.y;
-		var mousex = computer.mouse.x;
-		var min_r = 0.1;
-		var max_displaced = 40;
-		var deltay = mousey - originy;
-		var deltax = mousex - originx;
-		var r0 = $elm$core$Basics$sqrt(
-			A2($elm$core$Basics$pow, deltax, 2) + A2($elm$core$Basics$pow, deltay, 2));
-		var r = (_Utils_cmp(r0, min_r) < 0) ? min_r : r0;
-		var displaced = (A2($elm$core$Basics$pow, r, -2) * 600000.0) / spring_constant;
-		var displaced_final = (_Utils_cmp(displaced, max_displaced) < 0) ? displaced : max_displaced;
-		var angle = $elm$core$Basics$atan(deltay / deltax);
-		return {angle: angle, displaced: displaced, distance: r, newx: originx - ((deltax / r) * displaced_final), newy: originy - ((deltay / r) * displaced_final)};
-	});
 var $author$project$Playground$fade = F2(
 	function (o, _v0) {
 		var x = _v0.a;
@@ -6789,32 +6836,6 @@ var $author$project$Playground$fade = F2(
 		var s = _v0.d;
 		var f = _v0.f;
 		return A6($author$project$Playground$Shape, x, y, a, s, o, f);
-	});
-var $author$project$Magnet$column_of_positions = F4(
-	function (computer, memory, y_list, x) {
-		return A2(
-			$elm$core$List$map,
-			A3($author$project$Magnet$displacement, computer, memory, x),
-			y_list);
-	});
-var $elm$core$List$append = F2(
-	function (xs, ys) {
-		if (!ys.b) {
-			return xs;
-		} else {
-			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
-		}
-	});
-var $elm$core$List$concat = function (lists) {
-	return A3($elm$core$List$foldr, $elm$core$List$append, _List_Nil, lists);
-};
-var $author$project$Magnet$grid_of_positions = F4(
-	function (computer, memory, x_list, y_list) {
-		return $elm$core$List$concat(
-			A2(
-				$elm$core$List$map,
-				A3($author$project$Magnet$column_of_positions, computer, memory, y_list),
-				x_list));
 	});
 var $author$project$Playground$moveX = F2(
 	function (dx, _v0) {
@@ -6889,56 +6910,53 @@ var $author$project$Magnet$plot_circle = F2(
 		var red1 = 255;
 		var red0 = 133;
 		var redf = ((red1 - red0) * xscaled) + red0;
+		var green1 = 139;
+		var green0 = 127;
+		var greenf = ((green1 - green0) * xscaled) + green0;
+		var fade_value = position_data.flagged ? (computer.mouse.down ? 0.4 : 0.5) : 1;
 		var blue1 = 160;
 		var blue0 = 168;
 		var bluef = ((blue1 - blue0) * xscaled) + blue0;
 		var ccolor = A3($author$project$Playground$rgb, redf, 80, bluef);
 		return A2(
-			$author$project$Playground$rotate,
-			(position_data.angle / $elm$core$Basics$pi) * 180,
+			$author$project$Playground$fade,
+			fade_value,
 			A2(
-				$author$project$Playground$moveY,
-				position_data.newy,
+				$author$project$Playground$rotate,
+				(position_data.angle / $elm$core$Basics$pi) * 180,
 				A2(
-					$author$project$Playground$moveX,
-					position_data.newx,
-					A3($author$project$Playground$oval, ccolor, 60 * squashfactor, 60))));
+					$author$project$Playground$moveY,
+					position_data.newy,
+					A2(
+						$author$project$Playground$moveX,
+						position_data.newx,
+						A3($author$project$Playground$oval, ccolor, 60 * squashfactor, 60)))));
 	});
-var $author$project$Playground$Hex = function (a) {
-	return {$: 'Hex', a: a};
-};
-var $author$project$Playground$red = $author$project$Playground$Hex('#cc0000');
 var $author$project$Magnet$view = F2(
-	function (computer, memory) {
-		var first_circle = A4($author$project$Magnet$displacement, computer, memory, 0, 0);
-		var circle_grid = A4(
-			$author$project$Magnet$grid_of_positions,
-			computer,
-			memory,
-			_List_fromArray(
-				[-400, -300, -200, -100, 0, 100, 200, 300, 400]),
-			_List_fromArray(
-				[-200, -100, 0, 100, 200]));
+	function (computer, circles) {
 		return _Utils_ap(
 			_List_fromArray(
 				[
 					A2(
 					$author$project$Playground$fade,
-					computer.mouse.down ? 0.2 : 1,
+					computer.mouse.down ? 0.5 : 1,
 					A2(
 						$author$project$Playground$moveY,
 						computer.mouse.y,
 						A2(
 							$author$project$Playground$moveX,
 							computer.mouse.x,
-							A2($author$project$Playground$circle, $author$project$Playground$red, 10))))
+							A2(
+								$author$project$Playground$circle,
+								A3($author$project$Playground$rgb, 252, 233, 79),
+								computer.mouse.down ? 26 : 10))))
 				]),
 			A2(
 				$elm$core$List$map,
 				$author$project$Magnet$plot_circle(computer),
-				circle_grid));
+				circles));
 	});
-var $author$project$Magnet$main = A3($author$project$Playground$game, $author$project$Magnet$view, $author$project$Magnet$update, _Utils_Tuple0);
+var $author$project$Magnet$main = A3($author$project$Playground$game, $author$project$Magnet$view, $author$project$Magnet$update, $author$project$Magnet$init_circles);
 _Platform_export({'Magnet':{'init':$author$project$Magnet$main(
 	$elm$json$Json$Decode$succeed(_Utils_Tuple0))(0)}});}(this));
 
